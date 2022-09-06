@@ -1,6 +1,6 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --font-family: 'Roboto', sans-serif;
+  --font-family: "Roboto", sans-serif;
   --primary-1:#3498db;
   --primary-2:#2980b9;
   --danger-1:#e74c3c ;
@@ -124,7 +124,6 @@ body {
   background-color: var(--primary-1);
   color: var(--text-primary-color);
 }
-
 .btn-primary:hover {
   background-color: var(--primary-2);
 }
@@ -133,7 +132,6 @@ body {
   background-color: var(--danger-1);
   color: var(--text-primary-color);
 }
-
 .btn-danger:hover {
   background-color: var(--danger-2);
-}
+}/*# sourceMappingURL=base.css.map */

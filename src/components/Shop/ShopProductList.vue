@@ -1,14 +1,22 @@
 <script setup lang="ts">
 import type { ProductInterface } from '@/interfaces/product.interface'
 import ShopProduct from './ShopProduct.vue'
+//Je spécifie les informations que ce composant va récupérer
+//Je fais un v-for pour itirer sur chacun des produits dans mon tableu de produits
+//Sur ces produits on fait un bind de l iteration en cours
+//On va le spécidier dans le shop product
+//Ensuite il faut configurer l evenement depuis shop product
 defineProps<{
   products: ProductInterface[]
+}>()
+const emit = defineEmits<{
+(e: 'addProductToCart', productId: number): void
 }>()
 </script>
 
 <template>
   <div class="grid p-20">
-    <ShopProduct v-for="product of products" :product="product"/>
+    <ShopProduct @add-product-to-cart="emit('addProductToCart', $event)" v-for="product of products" :product="product"/>
    
   </div>
 </template>
