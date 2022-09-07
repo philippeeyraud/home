@@ -4,7 +4,7 @@ import TheFooter from './components/Footer.vue'
 import Shop from './components/Shop/Shop.vue'
 import Cart from './components/Cart/Cart.vue'
 import data from './data/product';
-import { reactive } from 'vue';
+import { computed, reactive } from 'vue';
 import type { ProductCartInterface, ProductInterface } from './interfaces';
 import product from './data/product';
 //Je cree une constante et je la type pour dire quel type d'informations je vais stocker.
@@ -59,20 +59,26 @@ if(productFromCart) {
   }
 }
 }
+const cartEmpty = computed(() => state.cart.length === 0)
 </script>
 
 <template>
-  <div class="app-container">
+  <div class="app-container" :class="{
+    gridEmpty: cartEmpty
+  }">
     <TheHeader class="header" />
     <Shop :products="state.products" @add-product-to-cart="addProductToCart" class="shop" />
-    <Cart :cart="state.cart" class="cart " @remove-product-from-cart="removeProductFromCart"/>
+  <!--Si il ny a rien ds le panier je ne l'affiche pas je vais utiliser un v-if pour voir si il y a qql chose dans cart-->
+    <Cart 
+    v-if="!cartEmpty "
+      :cart="state.cart" class="cart " @remove-product-from-cart="removeProductFromCart"/>
     <TheFooter class="footer " />
   </div>
 </template>
 
 <style lang="scss">
-@import './assets/base.scss';
-@import './assets/debug.scss';
+@import './assets/scss/base.scss';
+@import './assets/scss/debug.scss';
 
 .app-container {
   min-height: 100vh;
@@ -81,6 +87,14 @@ if(productFromCart) {
   grid-template-columns: 75% 25%;
   grid-template-rows: 48px auto 48px;
 }
+.gridEmpty {
+  grid-template-areas: 'header ' 'shop' 'footer ';
+  grid-template-columns: 100%;
+
+}
+
+
+
 .header {
   grid-area: header;
 }
