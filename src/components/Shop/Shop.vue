@@ -1,6 +1,6 @@
 <script setup lang="ts">
    
-import type { ProductInterface } from '@/interfaces/product.interface';
+import type { ProductInterface } from '@/interfaces';
 import ShopProductList from './ShopProductList.vue';
 //Je dis quel type d information je vais récupérer en propprieté
 //De la meme facon que sur app vue je vais définir le type.

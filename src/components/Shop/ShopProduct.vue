@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ProductInterface } from '@/interfaces/product.interface';
+import type { ProductInterface } from '@/interfaces';
 
 //Je spécifie les informations qui vont être récupérées par le composant
 //Ici c'est un produit unique de type productInterface  

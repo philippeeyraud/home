@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ProductInterface } from '@/interfaces/product.interface'
+import type { ProductInterface } from '@/interfaces'
 import ShopProduct from './ShopProduct.vue'
 //Je spécifie les informations que ce composant va récupérer
 //Je fais un v-for pour itirer sur chacun des produits dans mon tableu de produits

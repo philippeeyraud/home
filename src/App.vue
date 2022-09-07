@@ -5,7 +5,8 @@ import Shop from './components/Shop/Shop.vue'
 import Cart from './components/Cart/Cart.vue'
 import data from './data/product';
 import { reactive } from 'vue';
-import type { ProductInterface } from './interfaces/product.interface';
+import type { ProductCartInterface, ProductInterface } from './interfaces';
+import product from './data/product';
 //Je cree une constante et je la type pour dire quel type d'informations je vais stocker.
 //Je fais un import de data pour récupérer mon tableau de data
 //Je transferrt les informations sur les composants qui en ont besoin, ici le composant Shop va lister toute la liste de mes produits
@@ -18,7 +19,7 @@ import type { ProductInterface } from './interfaces/product.interface';
 //Créer une proprieté réactive(state) pour pouvoir décrir tous les éléments dont on aura besoin
 const state = reactive<{
 products:ProductInterface[] ,
-cart:ProductInterface[]
+cart:ProductCartInterface[]
 }>({
   products: data,
   cart: []
@@ -32,19 +33,39 @@ cart:ProductInterface[]
 //On va écouter l evenement depuis notre shop
 function addProductToCart(productId: number): void{
 const product = state.products.find(product => product.id === productId);
-if(product && !state.cart.find(product => product.id === productId)) {
-  state.cart.push({...product}  )
+//if(product && !state.cart.find(product => product.id === productId)) {
+ // state.cart.push({...product, quantity: 1 })
+//}
+if(product) {
+  const productInCart = state.cart.find(product => product.id === productId)
+  if (productInCart){
+    productInCart.quantity++
+  } else {
+    state.cart.push({...product, quantity: 1 })
+  }
 }
 }
+//On déclare la fonction quui va nous permettre de supprimer l element de notre panier
+//On supprime l'element de notre cart,on va s assure que tous les elements qui sont dans le panier n'ont pas l'id de celui que je supprime
 
+function removeProductFromCart(productId: number): void {
 
+const productFromCart = state.cart.find(product => product.id === productId);
+if(productFromCart) {
+  if (productFromCart.quantity === 1) {
+    state.cart = state.cart.filter(product => product.id !== productId);
+  } else {
+    productFromCart.quantity--;
+  }
+}
+}
 </script>
 
 <template>
   <div class="app-container">
     <TheHeader class="header" />
     <Shop :products="state.products" @add-product-to-cart="addProductToCart" class="shop" />
-    <Cart class="cart " />
+    <Cart :cart="state.cart" class="cart " @remove-product-from-cart="removeProductFromCart"/>
     <TheFooter class="footer " />
   </div>
 </template>
