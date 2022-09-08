@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import product from "@/data/product";
 import type { ProductCartInterface, } from "@/interfaces";
-import { computed } from "@vue/reactivity";
-import CartProductList from "./CartProductList.vue";
+import { computed } from 'vue';
+import CartProductList from './CartProductList.vue';
 //On va récupérer le cart avec une list de produits
 //On transmet l'information à notre cartProductList
 //Pour calculer totalPrice on additione la totalité des elemnts qui sont ds le cart*par les qt de ces elements

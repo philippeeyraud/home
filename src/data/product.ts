@@ -6,6 +6,7 @@ export default [
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     title: 'emma',
     price: 1500
+   
 },
 {    id: 2,
     image:'src/assets/images/emma6.jpg',
