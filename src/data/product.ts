@@ -1,3 +1,5 @@
+import type { ProductInterface } from "@/interfaces";
+
 export default [
    //Informations positionnées en dur dans un dossier DATA
    //Je déclare un fichier .ts dans lequel j'exporte les produits
@@ -5,7 +7,8 @@ export default [
     image:'src/assets/images/emma7.jpg',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     title: 'emma',
-    price: 1500
+    price: 1500,
+    category:'classique'
    
 },
 {    id: 2,
@@ -13,6 +16,7 @@ export default [
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     title: 'emma',
     price: 100,
+     category:'classique'
     
 },
 {
@@ -21,6 +25,7 @@ export default [
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     title: 'emma',
     price: 1400,
+     category:'classique'
 
 },
 {  
@@ -29,13 +34,15 @@ export default [
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     title: 'emma',
     price: 800,
+     category:'classique'
 },
 {
     id: 5,
     image:'src/assets/images/emma3.jpg',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     title: 'emma',
-    price: 900
+    price: 900,
+     category:'art singulier'
 },
 
 {
@@ -44,6 +51,7 @@ export default [
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     title: 'emma',
     price: 1000,
+    category:'art singulier'
 
 },
 {  
@@ -52,10 +60,10 @@ export default [
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     title: 'emma',
     price: 1100,
-
+    category: 'art contemporain'
 },
 
-]
+] as ProductInterface[]
 
 
 

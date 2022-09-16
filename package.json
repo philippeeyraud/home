@@ -13,7 +13,10 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "node": "^18.9.0",
+    "type": "^2.7.2",
+    "vue": "^3.2.37",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@types/node": "^16.11.47",

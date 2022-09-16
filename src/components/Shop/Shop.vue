@@ -1,5 +1,5 @@
 <script setup lang="ts">
-   
+
 import type { ProductInterface } from '@/interfaces';
 import ShopProductList from './ShopProductList.vue';
 //Je dis quel type d information je vais récupérer en propprieté
@@ -10,16 +10,17 @@ defineProps<{
     products: ProductInterface[]
 }>()
 const emit = defineEmits<{
-(e: 'addProductToCart', productId: number): void
+    (e: 'addProductToCart', productId: number): void
 }>()
 </script>
 
 <template>
     <div>
-        <ShopProductList @add-product-to-cart="emit('addProductToCart', $event)"  :products="products" />
+        <ShopProductList @add-product-to-cart="emit('addProductToCart', $event)" :products="products" />
     </div>
 
 </template> 
 
 <style lang="scss" scoped>
+
 </style>
