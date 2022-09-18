@@ -10,8 +10,8 @@ import type {
   FilterUpdate,
   ProductCartInterface,
   ProductInterface,
-} from "./interfaces";
-import product from "./data/product";
+} from './interfaces';
+
 import { DEFAULT_FILTERS } from "./data/Filters";
 //Je cree une constante et je la type pour dire quel type d'informations je vais stocker.
 //Je fais un import de data pour récupérer mon tableau de data
@@ -23,6 +23,7 @@ import { DEFAULT_FILTERS } from "./data/Filters";
 //On initialise avec un tableau vide
 //const cart = reactive<ProductInterface[]>([]);
 //Créer une proprieté réactive(state) pour pouvoir décrir tous les éléments dont on aura besoin
+
 const state = reactive<{
   products: ProductInterface[];
   cart: ProductCartInterface[];
@@ -39,8 +40,10 @@ const state = reactive<{
 //Je dissocie  le produit qui est dans mon state , je vais créer un nv produit mais il ne faut pas qu il ait la ^m reference
 //On fait la déconstruction avec les 3.
 //On va écouter l evenement depuis notre shop
+
 function addProductToCart(productId: number): void {
   const product = state.products.find((product) => product.id === productId);
+
   //if(product && !state.cart.find(product => product.id === productId)) {
   // state.cart.push({...product, quantity: 1 })
   //}
@@ -55,7 +58,7 @@ function addProductToCart(productId: number): void {
     }
   }
 }
-//On déclare la fonction quui va nous permettre de supprimer l element de notre panier
+//On déclare la fonction qui va nous permettre de supprimer l element de notre panier
 //On supprime l'element de notre cart,on va s assure que tous les elements qui sont dans le panier n'ont pas l'id de celui que je supprime
 
 function removeProductFromCart(productId: number): void {
@@ -118,19 +121,19 @@ const filteredProducts = computed(() => {
 </template>
 
 <style lang="scss">
-@import "./assets/scss/base.scss";
-@import "./assets/scss/debug.scss";
+@import './assets/scss/base.scss';
+@import './assets/scss/debug.scss';
 
 .app-container {
   min-height: 100vh;
   display: grid;
-  grid-template-areas: "header header" "shop cart" "footer footer";
+  grid-template-areas: 'header header' 'shop cart' 'footer footer';
   grid-template-columns: 75% 25%;
   grid-template-rows: 48px auto 48px;
 }
 
 .gridEmpty {
-  grid-template-areas: "header " "shop" "footer ";
+  grid-template-areas: 'header ' 'shop' 'footer ';
   grid-template-columns: 100%;
 }
 
