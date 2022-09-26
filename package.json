@@ -13,10 +13,17 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@vee-validate/zod": "^4.6.9",
     "vee-validate": "^4.6.9",
     "vue": "^3.2.37",
     "zod": "^3.19.1"
+=======
+    "node": "^18.9.0",
+    "type": "^2.7.2",
+    "vue": "^3.2.37",
+    "winston": "^3.8.2"
+>>>>>>> 23d7ca61cd8959da50e39080c1fecb7c55692864
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^8.5.9",
