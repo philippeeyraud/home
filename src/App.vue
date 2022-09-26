@@ -18,8 +18,8 @@
         <input
           v-model="passwordValue"
           class="mr-10"
-          type="password"
-          placeholder="password"
+          type="text"
+          placeholder="Password"
         />
         <button class="btn btn-primary">Sauvegarder</button>
       </form>
@@ -28,7 +28,14 @@
       <h3>Liste des utilisateurs</h3>
       <ul>
         <li v-for="user in state.users">
-          <p>{{ user.name }} - {{ user.email }}</p>
+          <p class="mr-10">{{ user.name }} - {{ user.email }} - {{user.password}}</p>
+          <button
+            @click="deleteUser(user._id)"
+            type="button"
+            class="btn btn-danger"
+          >
+            Supprimer
+            </button>
         </li>
       </ul>
     </div>
@@ -38,7 +45,7 @@
 <script setup lang="ts">
 import { useForm, useField } from "vee-validate";
 import { reactive } from "vue";
-//Si l'utilisateur a été créer on rajoute _id
+
 interface User {
   name: string;
   email: string;
@@ -46,30 +53,22 @@ interface User {
   createdAt?: string;
   _id?: string;
 }
-//on a besoin de recuperer des users avec la mmethode reactive
 
 const state = reactive<{ users: User[] }>({
   users: [],
 });
-//Pour configurer le formulaire on utilise useForm.
 
 const { handleSubmit, resetForm } = useForm();
-//HandleSubmmit va nous permettre de gerer la soumission du formulaire
-//On evoque handleSubmit et on lui passe la fonction de callback qui va nous permettre d'envoyer une requete http a notre serveur
+
 const mySubmit = handleSubmit(async value => {
   try {
     const response = await fetch("http://localhost:3000/api/auth/signup", {
       method: "POST",
-      //information que l on envoi au travers de requete post
-      //L'objet js est converti au formatjson
       body: JSON.stringify(value),
-      //On definie dans headers le type d'info que l'on envoi
       headers: {
         "Content-Type": "application/json",
       },
     });
-    //Si le user a bien été créé la base de donnée va nous renvoyer le non de l utilisateur
-    //Avec la methode push on rajoute le user ds la liste des utilisateurs
     const user: User = await response.json();
     state.users.push(user);
     resetForm();
@@ -77,11 +76,36 @@ const mySubmit = handleSubmit(async value => {
     console.error(err);
   }
 });
-//On configure les deux champs
-//deux proprietes reactive que l'on va binder avec v-model
-const { value: emailValue } = useField("email");
 const { value: passwordValue } = useField("password");
+const { value: emailValue } = useField("email");
 const { value: nameValue } = useField("name");
+
+async function fetchUsers() {
+  try {
+    const response = await fetch("http://localhost:3000/api/auth/signup");
+    const users: User | User[] = await response.json();
+    if (users) {
+      state.users = Array.isArray(users) ? users : [users];
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function deleteUser(userId?: string) {
+  try {
+    if (userId) {
+      await fetch(`http://localhost:3000/api/auth/signup?id=${userId}`, {
+        method: "DELETE",
+      });
+      state.users = state.users.filter(user => user._id !== userId);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+fetchUsers();
 </script>
 
 <style lang="scss">
