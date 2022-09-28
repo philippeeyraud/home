@@ -13,13 +13,28 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@vee-validate/zod": "^4.6.9",
     "meta": "^2.2.25",
     "vee-validate": "^4.6.9",
     "vue": "^3.2.37",
     "zod": "^3.19.1"
+=======
+<<<<<<< HEAD
+    "@vee-validate/zod": "^4.6.9",
+    "vee-validate": "^4.6.9",
+    "vue": "^3.2.37",
+    "zod": "^3.19.1"
+=======
+    "node": "^18.9.0",
+    "type": "^2.7.2",
+    "vue": "^3.2.37",
+    "winston": "^3.8.2"
+>>>>>>> 23d7ca61cd8959da50e39080c1fecb7c55692864
+>>>>>>> 2b24bd82b0082619108311ab2f2f0cd3f6d8bea9
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.9",
     "@types/node": "^16.11.47",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/tsconfig": "^0.1.3",
