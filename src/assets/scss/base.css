@@ -1,6 +1,10 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+<<<<<<< HEAD
   --font-family: 'Roboto', sans-serif;
+=======
+  --font-family: "Roboto", sans-serif;
+>>>>>>> 7e323a39caacee20d07d9ffd53106e0ee010fd99
   --primary-1:#3498db;
   --primary-2:#2980b9;
   --danger-1:#e74c3c ;
@@ -67,10 +71,13 @@ body {
   align-items: center;
 }
 
+<<<<<<< HEAD
 .align-items-start {
   align-items: flex-start;
 }
 
+=======
+>>>>>>> 7e323a39caacee20d07d9ffd53106e0ee010fd99
 .flex-fill {
   flex: 1 1 auto;
 }
@@ -128,7 +135,10 @@ body {
   background-color: var(--primary-1);
   color: var(--text-primary-color);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7e323a39caacee20d07d9ffd53106e0ee010fd99
 .btn-primary:hover {
   background-color: var(--primary-2);
 }
@@ -137,7 +147,10 @@ body {
   background-color: var(--danger-1);
   color: var(--text-primary-color);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7e323a39caacee20d07d9ffd53106e0ee010fd99
 .btn-danger:hover {
   background-color: var(--danger-2);
 }
@@ -146,7 +159,13 @@ body {
   background-color: var(--success-1);
   color: var(--text-primary-color);
 }
+<<<<<<< HEAD
 
 .btn-success:hover {
   background-color: var(--success-2);
 }
+=======
+.btn-success:hover {
+  background-color: var(--success-2);
+}/*# sourceMappingURL=base.css.map */
+>>>>>>> 7e323a39caacee20d07d9ffd53106e0ee010fd99
