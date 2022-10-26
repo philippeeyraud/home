@@ -67,6 +67,10 @@ body {
   align-items: center;
 }
 
+.align-items-start {
+  align-items: flex-start;
+}
+
 .flex-fill {
   flex: 1 1 auto;
 }
@@ -139,10 +143,10 @@ body {
 }
 
 .btn-success {
-  background-color: var(--succes-1);
+  background-color: var(--success-1);
   color: var(--text-primary-color);
 }
 
 .btn-success:hover {
-  background-color: var(--succes-2);
+  background-color: var(--success-2);
 }
